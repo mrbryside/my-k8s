@@ -27,4 +27,4 @@ jobs:
 
       - name: Run GolangCI-Lint
         run: |
-          golangci-lint run --timeout=10m
+          cd kmodule && golangci-lint run --timeout=10m
