@@ -8,8 +8,6 @@ import (
 	"github.com/mrbryside/ketcd"
 )
 
-// test
-
 // EtcdClient interface defines the methods needed from the etcd client
 type EtcdClient interface {
 	ListPods(ctx context.Context, namespace string) ([]ketcd.PodInfo, error)
