@@ -1,0 +1,31 @@
+name: GolangCI-Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: Run GolangCI-Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      GOLANGCI_LINT_VERSION: v1.54.2 # Global variable for GolangCI-Lint version
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20' # Adjust the Go version as needed
+
+      - name: Install GolangCI-Lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin $GOLANGCI_LINT_VERSION
+
+      - name: Run GolangCI-Lint
+        run: |
+          golangci-lint run --timeout=10m --config=.github/lint-config/.golangci.yml

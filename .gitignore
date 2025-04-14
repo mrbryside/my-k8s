@@ -1,0 +1,44 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.gomon
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Vendor folder from `dep`
+/vendor
+
+**/.env
+.env.generated
+
+cover*.*
+*.coverprofile
+
+/artifacts
+/test/reports/junit/*
+/test/reports/coverage/*
+
+# Private key file
+.ssh/id_*
+
+# MacOS
+.DS_Store
+
+# Dep Graph
+/docs/dep_*
+
+# docker volumns
+data/
+
+# goland ide
+/.idea
+
+#air
+**/tmp/

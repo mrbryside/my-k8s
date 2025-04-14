@@ -1,0 +1,45 @@
+run:
+  timeout: 10m
+  allow-parallel-runners: true
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - dupl
+    - dogsled
+    - errcheck
+    - goconst
+    - gocyclo
+    - gofmt
+    - goimports
+    - revive
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - misspell
+    - staticcheck
+    - stylecheck
+    - typecheck
+    - unparam
+    - unused
+
+issues:
+  exclude-use-default: false
+  exclude:
+    - dot-imports
+    - string `true` has [0-9]+ occurrences, make it a constant
+  exclude-rules:
+    - path: '(.+)_test\.go'
+      linters:
+        - revive # ignore for rule unused-parameter in test files
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  goconst:
+    ignore-tests: true
+  gosec:
+    excludes:
+      - G115 # Potential integer overflow when converting between integer types
