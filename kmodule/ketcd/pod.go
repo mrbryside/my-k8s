@@ -103,7 +103,7 @@ func (c EtcdClient) WatchPods(ctx context.Context, namespace string) clientv3.Wa
 }
 
 // ProcessPodEvents demonstrates how to process pod events from the watch channel
-func (c EtcdClient) ProcessPodEvents(ctx context.Context, watchChan clientv3.WatchChan) {
+func (c EtcdClient) ProcessPodEvents(_ context.Context, watchChan clientv3.WatchChan) {
 	for watchResp := range watchChan {
 		for _, event := range watchResp.Events {
 			var pod PodInfo

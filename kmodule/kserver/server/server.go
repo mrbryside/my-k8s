@@ -1,3 +1,4 @@
+// Package server is a package that provides an HTTP server using the Fiber framework for interaction with an etcd.
 package server
 
 import (
@@ -6,6 +7,8 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/mrbryside/ketcd"
 )
+
+// test
 
 // EtcdClient interface defines the methods needed from the etcd client
 type EtcdClient interface {

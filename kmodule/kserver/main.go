@@ -1,3 +1,4 @@
+// Package main
 package main
 
 import (
@@ -15,13 +16,12 @@ var (
 )
 
 // NewEtcdClient creates a new etcd client
-func initEtcdClient(endpoint string) error {
+func initEtcdClient(endpoint string) {
 	client, err := ketcd.NewEtcdClient(endpoint)
 	if err != nil {
 		panic(fmt.Sprintf("Failed to create etcd client: %v", err))
 	}
 	etcdClient = client
-	return nil
 }
 
 func initServer() {
@@ -35,7 +35,9 @@ func main() {
 	initEtcdClient(os.Getenv("ETCD_HOST"))
 	initServer()
 
-	defer etcdClient.Close()
+	defer func() {
+		_ = etcdClient.Close()
+	}()
 
 	// Start the server
 	if err := srv.Start(":8080"); err != nil {
