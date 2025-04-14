@@ -1,4 +1,4 @@
-// server is a package that provides an HTTP server using the Fiber framework for interaction with an etcd.
+// Package server is a package that provides an HTTP server using the Fiber framework for interaction with an etcd.
 package server
 
 import (

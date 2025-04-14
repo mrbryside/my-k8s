@@ -35,7 +35,9 @@ func main() {
 	initEtcdClient(os.Getenv("ETCD_HOST"))
 	initServer()
 
-	defer etcdClient.Close()
+	defer func() {
+		_ = etcdClient.Close()
+	}()
 
 	// Start the server
 	if err := srv.Start(":8080"); err != nil {

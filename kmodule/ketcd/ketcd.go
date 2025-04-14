@@ -1,3 +1,4 @@
+// package ketcd is a package that provides an etcd client for storing and retrieving data.
 package ketcd
 
 import (
@@ -25,6 +26,7 @@ type PodInfo struct {
 	UpdatedAt time.Time         `json:"updatedAt"`
 }
 
+// NewEtcdClient creates a new etcd client
 func NewEtcdClient(host string) (ec EtcdClient, err error) {
 	client, err := clientv3.New(clientv3.Config{
 		Endpoints:   []string{host},
