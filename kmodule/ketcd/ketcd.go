@@ -49,9 +49,9 @@ func (c EtcdClient) setKey(ctx context.Context, key, value string) error {
 }
 
 // watchKey watches a key for changes
-func (c EtcdClient) watchKey(ctx context.Context, key string) clientv3.WatchChan {
-	return c.Client.Watch(ctx, key)
-}
+// func (c EtcdClient) watchKey(ctx context.Context, key string) clientv3.WatchChan {
+// 	return c.Client.Watch(ctx, key)
+// }
 
 // Close closes the etcd client
 func (c EtcdClient) Close() error {

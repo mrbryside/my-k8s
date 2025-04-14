@@ -1,3 +1,4 @@
+// Package main
 package main
 
 import (
@@ -15,7 +16,7 @@ var (
 )
 
 // NewEtcdClient creates a new etcd client
-func initEtcdClient(endpoint string) error {
+func initEtcdClient(endpoint string) {
 	client, err := ketcd.NewEtcdClient(endpoint)
 	if err != nil {
 		panic(fmt.Sprintf("Failed to create etcd client: %v", err))
