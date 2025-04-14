@@ -22,7 +22,6 @@ func initEtcdClient(endpoint string) {
 		panic(fmt.Sprintf("Failed to create etcd client: %v", err))
 	}
 	etcdClient = client
-	return nil
 }
 
 func initServer() {
