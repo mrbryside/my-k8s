@@ -1,4 +1,4 @@
-// package ketcd is a package that provides an etcd client for storing and retrieving data.
+// Package ketcd is a package that provides an etcd client for storing and retrieving data.
 package ketcd
 
 import (
